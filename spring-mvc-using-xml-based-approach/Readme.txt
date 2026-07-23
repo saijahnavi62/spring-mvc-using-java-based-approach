@@ -7,6 +7,20 @@
 5.so out next step is to create the conf file named my-project-dispatcher.xml
 6.Then we need to give component scan so when it triggers @Controller,@Service it creates beans for those particular classes
 
+Note: dont forget to give -servlet to the configuration file because When no contextConfigLocation is specified, DispatcherServlet automatically searches for -servlet.xml extension
+        or
+tell spring explicitly by mentioning contextConfigLocation
+<servlet>
+    <servlet-name>myprojectdispatcher</servlet-name>
 
+    <servlet-class>
+        org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/myprojectdispatcher.xml</param-value>
+    </init-param>
+</servlet>
 
 search for spring mvc configuration xml->enable mvc configuration->select xml based->copy paste in my-pro-disp.xml
